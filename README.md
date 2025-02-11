@@ -73,18 +73,22 @@ manufacturer, model, fuel, drive, state, and region are all categorical variable
 **Drop redundant columns:**
 Consider dropping cylinders, color, title_status: While they might seem relevant, these features are not as significant for predicting price compared to the other factors like year and odometer. Additionally, they are either too specific or may have a lot of missing or irrelevant data.
 
+<img width="627" alt="Screenshot 2025-02-11 at 1 59 17 PM" src="https://github.com/user-attachments/assets/2c7fdb65-3dba-4e0e-8da7-2c0e44e7d197" />
+
 
 **Feature encoding for categorical variables (e.g., manufacturer, region).**
 1. James-Stein (Target) Encoding for 'manufacturer' columns
 2. One Hot Encoding for fuel', 'transmission', 'title_status', 'condition', 'cylinders'
-3.  Target Encoding to 'model', 'drive', 'type', 'paint_color', 'state'
+3. Target Encoding to 'model', 'drive', 'type', 'paint_color', 'state'
    
 **Outlier detection and capping for price and odometer.**
 Here’s a summary of key numeric columns:
 price: Mean: ~75,199 Min: 0 (there might be errors or data anomalies) Max: ~$3.7 billion (likely outliers) 
 year: Mean: 2011 Min: 1900 (likely some data issues) Max: 2022 
 odometer: Mean: 98,043 miles Min: 0 (could indicate new or erroneous data) Max: 10 million miles (outlier alert!) 
-We handled these outliers, 
+We handled these outliers
+<img width="1046" alt="Screenshot 2025-02-11 at 1 59 02 PM" src="https://github.com/user-attachments/assets/04cea673-34bf-42b5-9037-24b11c0e74ce" />
+
 **Standardization of numerical features (price, odometer, year).**
 
 **2. Principal Component Analysis (PCA)**
@@ -100,22 +104,27 @@ Ridge Regression: Linear regression with L2 regularization to avoid overfitting.
 Lasso Regression: Linear regression with L1 regularization, performing automatic feature selection.
 Gradient Boosting: A tree-based model capable of capturing complex non-linear relationships between features.
 
+Train and evaluate multiple models: Linear Regression, Polynomial Regression (degree 2, 3, 4) using PCA-transformed features.
+Evaluate the models based on MSE, RMSE, and R².
+
 **4. Model Evaluation:**
 
 Models were evaluated using MSE (Mean Squared Error), RMSE (Root Mean Squared Error), and R² (R-squared) to compare performance.
 We also used Validation Curves and Learning Curves to analyze the bias-variance tradeoff and the model's performance with different data sizes.
 Through the modeling process, we explored multiple regression techniques to predict used car prices. Here's a summary of key insights from the models:
 
-Best Ridge Alpha: 1000
+**Best Ridge Alpha: 1000
 Best Lasso Alpha: 0.01
 Best Polynomial Degree: 3
 Gradient Boosting Best Parameters: {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 200}
-Gradient Boosting Best RMSE: 0.17
+Gradient Boosting Best RMSE: 0.17**
 
 **Ridge Regression  MSE: 0.033568, RMSE: 0.183217, R²: 0.453059
 Lasso Regression  MSE: 0.033568, RMSE: 0.183216, R²: 0.453059
 Polynomial (deg 3)  MSE: 0.032793, RMSE: 0.181089, R²: 0.465686
 Gradient Boosting  MSE: 0.031717, RMSE: 0.178092, R²: 0.483227**
+
+<img width="700" alt="Screenshot 2025-02-11 at 2 08 21 PM" src="https://github.com/user-attachments/assets/e4f846c7-821b-4037-86b8-d9c492d0f088" />
 
 ---
 **Final Model Selected:** **Ridge or Lasso**  
@@ -155,21 +164,28 @@ R² for Ridge and Lasso: Measures how well the model fits the training and test 
 **2. Vehicle Age (Year) - Key Factor**   
    - Newer cars have higher resale value.  
 **3. Manufacturer & Model - Price Varies by Brand**   
-   - Luxury brands (BMW, Mercedes) retain value better.  
-**4. Condition & Fuel Type Impact Pricing** ⚡  
+   - Luxury brands (BMW, Mercedes) retain value better. 
+**4. Fuel Gas and Electric - Price Varies by Fuel**   
+   - Gas and Electric cars have higher resale value.
+     
+**Other considerations**
+**5. Condition & Fuel Type Impact Pricing** ⚡  
    - Electric & hybrid cars are priced higher.  
-**5. Drive Type & Transmission - AWD/4WD Add Value**   
+**6. Drive Type & Transmission - AWD/4WD Add Value**   
    - More valuable in snowy/off-road regions.
 
 ### Model Deployment (Optional)
 You can deploy the trained model using Flask or FastAPI. 
 
 ## Conclusion
-The models evaluated include Ridge and Lasso regression. The models provide valuable insights into how various features influence car prices, such as:
+The models evaluated include Linear, Polynomial, Ridge, Lasso regression, and Gradient Boosting. Both Ridge and Lasso regression are high-quality models that provide valuable insights into the factors influencing car prices. These models are effective, interpretable, and offer practical value to the business in terms of understanding key drivers of car prices.
+The models provide valuable insights into how various features influence car prices, such as:
 
 Year: Newer cars tend to have higher prices.
 Odometer: Higher mileage decreases the price.
 Manufacturer: Certain manufacturers tend to have higher price points.
+Fuel type: Gas and electric cars have better resale value.
+
 Future Improvements
 Explore non-linear models such as Random Forests or Gradient Boosting Machines.
 Incorporate additional features like car condition or historical sales data for better accuracy.
