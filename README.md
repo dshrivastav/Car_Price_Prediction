@@ -115,16 +115,16 @@ Models were evaluated using MSE (Mean Squared Error), RMSE (Root Mean Squared Er
 We also used Validation Curves and Learning Curves to analyze the bias-variance tradeoff and the model's performance with different data sizes.
 Through the modeling process, we explored multiple regression techniques to predict used car prices. Here's a summary of key insights from the models:
 
-**Best Ridge Alpha: 1000
-Best Lasso Alpha: 0.01
-Best Polynomial Degree: 3
-Gradient Boosting Best Parameters: {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 200}
-Gradient Boosting Best RMSE: 0.17**
+**Best Ridge Alpha:** 1000  
+**Best Lasso Alpha:** 0.01  
+**Best Polynomial Degree:** 3  
+**Gradient Boosting Best Parameters:** {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 200}  
+**Gradient Boosting Best RMSE:** 0.17  
 
-**Ridge Regression  MSE: 0.033568, RMSE: 0.183217, R²: 0.453059
-Lasso Regression  MSE: 0.033568, RMSE: 0.183216, R²: 0.453059
-Polynomial (deg 3)  MSE: 0.032793, RMSE: 0.181089, R²: 0.465686
-Gradient Boosting  MSE: 0.031717, RMSE: 0.178092, R²: 0.483227**
+**Ridge Regression**  MSE: 0.033568, RMSE: 0.183217, R²: 0.453059  
+**Lasso Regression**  MSE: 0.033568, RMSE: 0.183216, R²: 0.453059  
+**Polynomial (deg 3)**  MSE: 0.032793, RMSE: 0.181089, R²: 0.465686  
+**Gradient Boosting**  MSE: 0.031717, RMSE: 0.178092, R²: 0.483227  
 
 <img width="700" alt="Screenshot 2025-02-11 at 2 08 21 PM" src="https://github.com/user-attachments/assets/e4f846c7-821b-4037-86b8-d9c492d0f088" />
 
@@ -160,21 +160,28 @@ R² for Ridge and Lasso: Measures how well the model fits the training and test 
 ### Feature Importance Analysis  
 <img width="1124" alt="Screenshot 2025-02-11 at 1 34 09 PM" src="https://github.com/user-attachments/assets/128acdf2-57ae-4e2f-873f-0e8819454120" />
 
-#### Top Factors Influencing Car Prices:  
-**1. Odometer (Mileage) - Strongest Predictor**    
+#### Top Factors Influencing Car Prices  
+
+**1. Odometer (Mileage) — Strongest Predictor**  
    - Lower mileage = Higher price.  
-**2. Vehicle Age (Year) - Key Factor**   
+
+**2. Vehicle Age (Year) — Key Factor**  
    - Newer cars have higher resale value.  
-**3. Manufacturer & Model - Price Varies by Brand**   
-   - Luxury brands (BMW, Mercedes) retain value better. 
-**4. Fuel Gas and Electric - Price Varies by Fuel**   
-   - Gas and Electric cars have higher resale value.
-     
-**Other considerations**
-**5. Condition & Fuel Type Impact Pricing** ⚡  
+
+**3. Manufacturer & Model — Price Varies by Brand**  
+   - Luxury brands (BMW, Mercedes) retain value better.  
+
+**4. Fuel Type — Gas and Electric Cars Hold Value**  
+   - Gas and Electric cars have higher resale value.  
+
+#### Other Considerations  
+
+**5. Condition & Fuel Type Impact Pricing**  
    - Electric & hybrid cars are priced higher.  
-**6. Drive Type & Transmission - AWD/4WD Add Value**   
-   - More valuable in snowy/off-road regions.
+
+**6. Drive Type & Transmission — AWD/4WD Add Value**  
+   - More valuable in snowy/off-road regions.  
+
 
 ### Model Deployment (Optional)
 You can deploy the trained model using Flask or FastAPI. 
