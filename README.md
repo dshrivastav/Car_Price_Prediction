@@ -8,7 +8,9 @@ The project focuses on predicting vehicle prices using various regression models
 Polynomial Regression (degrees 2, 3, 4), Ridge Regression, and Lasso Regression. 
 The dataset contains features such as the vehicle's price, year, mileage, manufacturer, fuel type, and other attributes.
 
-We apply Principal Component Analysis (PCA) to reduce the dimensionality of the dataset, enhance model performance, and visualize the impact of model complexity through various evaluations.  
+We apply Hyperparameter Principal Component Analysis (PCA) to reduce the dimensionality of the dataset, enhance model performance, and visualize the impact of model complexity through various evaluations. We also apply Hyperparameter Tuning and GridSearchCV yet. These steps are essential for optimizing the performance of models.
+
+For this project we follow the standard process in industry for data projects called CRISP-DM. The complete are captured in the Jupyter notebook /used_car_price_prediction.ipynb
 
 ---
 ## Objective:
