@@ -142,12 +142,13 @@ Manufacturer: The brand or manufacturer of a car significantly impacts its price
 
 #### 3. Model Quality and Predictive Power
 The models performed well, with R² values indicating that both Ridge and Lasso regression models explain a significant portion of the variance in car prices. Both models were evaluated on their ability to predict prices on the test set, showing that they generalize well and perform reliably on unseen data.
+R² for Ridge and Lasso: Measures how well the model fits the training and test data. A high R² value on both training and test sets indicates a good model fit.
 
-**R² for Ridge:** Measures how well the model fits the training and test data. A high R² value on both training and test sets indicates a good model fit.
-**Residual Variance:** The residual variance (difference between actual and predicted values) was low, indicating that the models captured the underlying patterns in the data well.
 ---
 
 ### Feature Importance Analysis  
+<img width="1124" alt="Screenshot 2025-02-11 at 1 34 09 PM" src="https://github.com/user-attachments/assets/128acdf2-57ae-4e2f-873f-0e8819454120" />
+
 #### Top Factors Influencing Car Prices:  
 **1. Odometer (Mileage) - Strongest Predictor**    
    - Lower mileage = Higher price.  
