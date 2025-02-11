@@ -30,32 +30,34 @@ seaborn
 ## Dataset
 The dataset used in this analysis contains the following columns:
 
-id: Unique vehicle identifier
-region: The region where the vehicle is located
-price: The price of the vehicle (target variable)
-year: The year the vehicle was manufactured
-manufacturer: The vehicle's manufacturer
-model: The model of the vehicle
-condition: The condition of the vehicle (e.g., new, used)
-cylinders: Number of cylinders
-fuel: Type of fuel used by the vehicle (e.g., gasoline, diesel)
-odometer: The vehicle's mileage
-title_status: Vehicle title status
-transmission: Type of transmission (automatic, manual)
-VIN: Vehicle Identification Number
-drive: Drive type (e.g., AWD, FWD)
-size: The size category of the vehicle
-type: The vehicle type (e.g., SUV, sedan)
-paint_color: Color of the vehicle
-state: The state where the vehicle is located
+| **Feature**        | **Description** |
+|--------------------|---------------|
+| **id**            | Unique vehicle identifier |
+| **region**        | The region where the vehicle is located |
+| **price**         | The price of the vehicle (target variable) |
+| **year**          | The year the vehicle was manufactured |
+| **manufacturer**  | The vehicle's manufacturer |
+| **model**         | The model of the vehicle |
+| **condition**     | The condition of the vehicle (e.g., new, used) |
+| **cylinders**     | Number of cylinders |
+| **fuel**         | Type of fuel used by the vehicle (e.g., gasoline, diesel) |
+| **odometer**      | The vehicle's mileage |
+| **title_status**  | Vehicle title status |
+| **transmission**  | Type of transmission (automatic, manual) |
+| **VIN**          | Vehicle Identification Number |
+| **drive**        | Drive type (e.g., AWD, FWD) |
+| **size**         | The size category of the vehicle |
+| **type**         | The vehicle type (e.g., SUV, sedan) |
+| **paint_color**  | Color of the vehicle |
+| **state**        | The state where the vehicle is located |
 
 
 ## Data Exploration & Preprocessing
 
 ### Analysis Steps
-**1. Data Preparation:**
+#### 1. Data Preparation:
 
-### Dataset Features:  
+#### Dataset Features:  
 - **Numerical**: Year, odometer, price, cylinders, fuel efficiency, etc.  
 - **Categorical**: Manufacturer, type, transmission, fuel, drive, etc.
   
@@ -93,12 +95,12 @@ We handled these outliers
 
 **Standardization of numerical features (price, odometer, year).**
 
-**2. Principal Component Analysis (PCA)**
+#### 2. Principal Component Analysis (PCA)
 
 Applied PCA to reduce dimensionality while retaining 95% of the variance in the data.
 This step helps improve model performance and reduces overfitting.
 
-**3. Model Training:**
+#### 3. Model Training:
 
 Linear Regression: A simple linear model to predict the vehicle prices.
 Polynomial Regression: Polynomial features (degrees 2, 3, 4) to capture non-linear relationships.
@@ -109,7 +111,7 @@ Gradient Boosting: A tree-based model capable of capturing complex non-linear re
 Train and evaluate multiple models: Linear Regression, Polynomial Regression (degree 2, 3, 4) using PCA-transformed features.
 Evaluate the models based on MSE, RMSE, and R².
 
-**4. Model Evaluation:**
+#### 4. Model Evaluation:
 
 Models were evaluated using MSE (Mean Squared Error), RMSE (Root Mean Squared Error), and R² (R-squared) to compare performance.
 We also used Validation Curves and Learning Curves to analyze the bias-variance tradeoff and the model's performance with different data sizes.
@@ -121,15 +123,18 @@ Through the modeling process, we explored multiple regression techniques to pred
 **Gradient Boosting Best Parameters:** {'learning_rate': 0.1, 'max_depth': 5, 'n_estimators': 200}  
 **Gradient Boosting Best RMSE:** 0.17  
 
-**Ridge Regression**  MSE: 0.033568, RMSE: 0.183217, R²: 0.453059  
-**Lasso Regression**  MSE: 0.033568, RMSE: 0.183216, R²: 0.453059  
-**Polynomial (deg 3)**  MSE: 0.032793, RMSE: 0.181089, R²: 0.465686  
-**Gradient Boosting**  MSE: 0.031717, RMSE: 0.178092, R²: 0.483227  
+| **Model**                | **MSE**     | **RMSE**    | **R² Score**  |
+|-------------------------|------------|------------|-------------|
+| **Ridge Regression**    | 0.033568   | 0.183217   | 0.453059    |
+| **Lasso Regression**    | 0.033568   | 0.183216   | 0.453059    |
+| **Polynomial (deg 3)**  | 0.032793   | 0.181089   | 0.465686    |
+| **Gradient Boosting**   | 0.031717   | 0.178092   | 0.483227    |
+
 
 <img width="700" alt="Screenshot 2025-02-11 at 2 08 21 PM" src="https://github.com/user-attachments/assets/e4f846c7-821b-4037-86b8-d9c492d0f088" />
 
 ---
-**Final Model Selected:** **Ridge or Lasso**  
+### Final Model Selected: Ridge or Lasso
 High-Quality Model: Both Ridge and Lasso regression are high-quality models that provide valuable insights into the factors influencing car prices. These models are effective, interpretable, and offer practical value to the business in terms of understanding key drivers of car prices.
 
 ### Key Findings
@@ -216,11 +221,18 @@ Based on the analysis and model findings, here are actionable insights for fine-
 
 ## Next Steps
 Moving forward, we can focus on refining the feature engineering process, exploring more complex models (like Random Forest or Gradient Boosting), and testing the model's performance in different market conditions to ensure its robustness.
-With the insights from the model, the next step is to integrate the predictive pricing model into the dealership’s operations:
-**1. Integration into Inventory Management:** The model can be integrated into an inventory management system to automatically calculate and recommend optimal prices for new cars added to the inventory.
+With the insights from the model, the next step is to integrate the predictive pricing model into the dealership’s operations:  
 
-**2. Interactive Dashboard:** Create an interactive dashboard that allows dealers to input vehicle features (like year, mileage, manufacturer) and get a predicted price from the model. This would help in real-time decision-making and price adjustment.
+### Key Integration Steps  
 
-**3. Model Refinement:** While the current models provide valuable insights, future iterations could include more features, such as car condition, exterior/interior features, or even historical sales data. Additional non-linear models or ensemble methods could be explored to improve accuracy further.
+1. **Integration into Inventory Management**  
+   - The model can be integrated into an inventory management system to automatically calculate and recommend optimal prices for new cars added to the inventory.  
 
-**4. Model Monitoring:** Set up a process to continuously monitor the model's performance as new data comes in. This could include periodic retraining of the model and updating predictions to ensure they remain relevant in the changing market.
+2. **Interactive Dashboard**  
+   - Create an interactive dashboard that allows dealers to input vehicle features (like year, mileage, manufacturer) and get a predicted price from the model. This would help in real-time decision-making and price adjustment.  
+
+3. **Model Refinement**  
+   - While the current models provide valuable insights, future iterations could include more features, such as car condition, exterior/interior features, or even historical sales data. Additional non-linear models or ensemble methods could be explored to improve accuracy further.  
+
+4. **Model Monitoring**  
+   - Set up a process to continuously monitor the model's performance as new data comes in. This could include periodic retraining of the model and updating predictions to ensure they remain relevant in the changing market.  
